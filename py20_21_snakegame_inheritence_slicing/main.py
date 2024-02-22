@@ -31,16 +31,20 @@ def start_game():
         # detect wall
         if (snake.head.xcor() > 290 or snake.head.xcor() < -290
                 or snake.head.ycor() > 290 or snake.head.ycor() < -290):
-            game_on = False
-            scoreboard.game_over()
+            snake.reset()
+            scoreboard.reset()
+            # game_on = False
+            # scoreboard.game_over()
 
         # detect snake itself
         for segment in snake.segments[1:]:  # slicing list skipping head
             # if segment == snake.head:
             # pass
             if snake.head.distance(segment) < 10:
-                game_on = False
-                scoreboard.game_over()
+                snake.reset()
+                scoreboard.reset()
+                # game_on = False
+                # scoreboard.game_over()
 
 
 my_scr.listen()
